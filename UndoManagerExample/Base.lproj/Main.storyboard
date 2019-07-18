@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UndoManagerExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J9B-d4-T50">
+                                <rect key="frame" x="172" y="234" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.24313725489999999" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBu-RB-QC4">
+                                <rect key="frame" x="305.5" y="100" width="88.5" height="30"/>
+                                <state key="normal" title="UNDO"/>
+                                <connections>
+                                    <action selector="buttonUndoDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iA5-1r-89H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWJ-ll-cPp">
+                                <rect key="frame" x="209.5" y="100" width="88" height="30"/>
+                                <state key="normal" title="REDO"/>
+                                <connections>
+                                    <action selector="buttonRedoDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8dw-2p-jAb"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="22L-CA-Yp9">
+                                <rect key="frame" x="10" y="787" width="394" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="moW-ob-iXO">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCellIdentifier" id="InM-i4-7yW">
+                                        <rect key="frame" x="0.0" y="2.5" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="kJZ-qw-boj"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cNB-0r-A4Z"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CBu-RB-QC4" secondAttribute="trailing" constant="20" id="6dO-wP-P9V"/>
+                            <constraint firstItem="CBu-RB-QC4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="80:375" id="GVe-ti-Pgg"/>
+                            <constraint firstItem="CBu-RB-QC4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="56" id="Mdk-Um-kcm"/>
+                            <constraint firstItem="22L-CA-Yp9" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="50:812" id="UxT-Dj-jS6"/>
+                            <constraint firstItem="vWJ-ll-cPp" firstAttribute="width" secondItem="CBu-RB-QC4" secondAttribute="width" id="aNE-cg-kXx"/>
+                            <constraint firstItem="CBu-RB-QC4" firstAttribute="leading" secondItem="vWJ-ll-cPp" secondAttribute="trailing" constant="8" id="bDM-Ar-Irc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="22L-CA-Yp9" secondAttribute="bottom" constant="20" id="hwB-Eh-aGW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="22L-CA-Yp9" secondAttribute="trailing" constant="10" id="vtX-Xh-IGg"/>
+                            <constraint firstItem="vWJ-ll-cPp" firstAttribute="top" secondItem="CBu-RB-QC4" secondAttribute="top" id="x67-8z-sNE"/>
+                            <constraint firstItem="22L-CA-Yp9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="xQ3-Mj-97o"/>
+                            <constraint firstItem="vWJ-ll-cPp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="z04-hl-WTK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonRedo" destination="vWJ-ll-cPp" id="U2T-Wc-o50"/>
+                        <outlet property="buttonUndo" destination="CBu-RB-QC4" id="jt2-pV-LKm"/>
+                        <outlet property="collectionViewColorPallet" destination="22L-CA-Yp9" id="pt4-Or-oqB"/>
+                        <outlet property="viewBox" destination="J9B-d4-T50" id="1lQ-7x-2hQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="150.72463768115944" y="54.910714285714285"/>
+        </scene>
+    </scenes>
+</document>
